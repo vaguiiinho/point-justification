@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+
+  laravel:
+    build:
+      context: ./laravel
+      dockerfile: Dockerfile
+    image: laravel
+    container_name: laravel
+    volumes:
+      - ../:/var/www/point-justification
+    networks:
+      - point-justification
+    ports:
+      - 9000:9000
+
+  db:
+    image: mysql:5.7
+    command: --innodb-use-native-aio=0
+    container_name: db
+    restart: always
+    tty: true
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=pointjustification
+      - MYSQL_ROOT_PASSWORD=root
+    networks:
+      - point-justification
+
+networks:
+  point-justification:
+    driver: bridge
