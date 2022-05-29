@@ -11,8 +11,9 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
     php composer-setup.php && \
     php -r "unlink('composer-setup.php');"
 
-RUN apt install nodejs -y    
-RUN apt install npm -y    
+RUN apt install nodejs -y && \
+    apt install npm -y && \
+    npm install resolve-url-loader@^5.0.0 --save-dev --legacy-peer-deps
 
 
 ENTRYPOINT ["tail", "-f", "/dev/null"]

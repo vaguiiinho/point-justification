@@ -13,14 +13,14 @@ run command:
 
 docker-compose --project-directory docker up -d --build
 
-docker exec laravel php composer.phar -d justification-controller install
+docker exec laravel php composer.phar -d point-justification install
 
-docker exec laravel npm i --prefix ./justification-controller
+docker exec laravel npm i --prefix ./point-justification
 
-docker exec laravel npm run --prefix ./justification-controller dev
+docker exec laravel npm run --prefix ./point-justification dev
 
-docker exec laravel chown -R www-data.www-data /var/www/justification-controller/storage
+docker exec laravel chown -R www-data.www-data /var/www/point-justification
 
-docker exec laravel chown -R www-data.www-data /var/www/justification-controller/bootstrap/cache
+docker exec db chown -R mysql:mysql /var/lib/mysql/
 
-docker exec laravel php -f justification-controller/artisan migrate
+docker exec laravel php -f point-justification/artisan migrate
