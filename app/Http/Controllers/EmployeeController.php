@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
 use App\Models\Employee;
+use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
@@ -13,9 +14,16 @@ class EmployeeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $employees = Employee::all();
+        if (!$request->ajax()) {
+            return view('employee.index', compact($employees));
+        } else {
+            return $employees->toJson();
+        }
+
+
     }
 
     /**
@@ -25,7 +33,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
