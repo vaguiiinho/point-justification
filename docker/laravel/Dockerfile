@@ -16,4 +16,4 @@ RUN apt install nodejs -y && \
     npm install resolve-url-loader@^5.0.0 --save-dev --legacy-peer-deps
 
 
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+CMD ["tail", "-f", "/dev/null"]
