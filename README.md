@@ -17,7 +17,7 @@ docker exec laravel php composer.phar -d point-justification install
 
 docker exec laravel npm i --prefix ./point-justification
 
-docker exec laravel npm run --prefix ./point-justification dev
+docker exec laravel npm run --prefix ./point-justification watch
 
 docker exec laravel chown -R www-data.www-data /var/www/point-justification
 
