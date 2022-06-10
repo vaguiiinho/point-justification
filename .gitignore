@@ -15,3 +15,5 @@ yarn-error.log
 /.vscode
 /docker/mysql
 /public/js
+/public/css
+/public/images
