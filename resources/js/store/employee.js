@@ -1,4 +1,4 @@
-import axios from 'axios'
+import '../services/axios'
 import HOST from '../services/config'
 
 export default {
@@ -19,11 +19,11 @@ export default {
     },
 
     actions: {
-        query({ commit }) {
+        actionEmployees({ commit }) {
             axios.get(`${HOST.Employee}`)
                 .then(res => {
                     commit('setEmployee', res.data)
-                })
+                }).catch(err => console.log(err.response))
         }
     }
 }

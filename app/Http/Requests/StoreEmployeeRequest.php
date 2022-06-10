@@ -13,7 +13,7 @@ class StoreEmployeeRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class StoreEmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'first_name' => 'required|max:200',
+            'last_name' => 'required|max:200',
+            'cpf' => 'required|unique:cpf|max:200'
         ];
     }
 }

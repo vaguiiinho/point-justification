@@ -44,7 +44,9 @@ class EmployeeController extends Controller
      */
     public function store(StoreEmployeeRequest $request)
     {
-        //
+        $employee = Employee::create($request);
+        $employee->save();
+
     }
 
     /**
