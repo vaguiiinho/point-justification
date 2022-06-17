@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CoreController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.create-user');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resources([
+    'employee' => EmployeeController::class,
+]);
+
+Route::resources([
+<<<<<<< HEAD
+    'justification' => CoreController::class,
+=======
+    'user' => UserController::class,
+>>>>>>> f5096a1 (fist commit)
+]);
