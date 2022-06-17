@@ -12,7 +12,8 @@ import store from './store/store'
 
 Vue.use(BootstrapVue)
 
-Vue.component('Employees', require('./components/Employees').default);
+Vue.component('employees', require('./components/Employees').default);
+Vue.component('justifications', require('./components/justification/Justifications').default);
 
 
 const app = new Vue({

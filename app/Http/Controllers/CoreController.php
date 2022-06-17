@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCoreRequest;
 use App\Http\Requests\UpdateCoreRequest;
 use App\Models\Core;
+use Illuminate\Http\Request;
 
 class CoreController extends Controller
 {
@@ -13,9 +14,14 @@ class CoreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $justifications = Core::all();
+        if (!$request->ajax()) {
+            return view('justification.index', compact($justifications));
+        } else {
+            return $justifications->toJson();
+        }
     }
 
     /**
