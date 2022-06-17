@@ -12,6 +12,17 @@ class Employee extends Model
     protected $fillable = [
         'first_name',
         'last_name',
-        'cpf'
+        'cpf',
+        'user_id'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function cores()
+    {
+        return $this->hasMany(Employee::class);
+    }
 }

@@ -14,4 +14,9 @@ class Core extends Model
         'end_date',
         'justification'
     ];
+
+    public function empolyee()
+    {
+        return $this->belongsTo(Employee::class);
+    }
 }
