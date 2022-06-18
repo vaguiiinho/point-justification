@@ -16,9 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.create-user');
-});
 
 Auth::routes();
 
@@ -29,9 +26,5 @@ Route::resources([
 ]);
 
 Route::resources([
-<<<<<<< HEAD
     'justification' => CoreController::class,
-=======
-    'user' => UserController::class,
->>>>>>> f5096a1 (fist commit)
 ]);
