@@ -3,13 +3,15 @@ import Vuex from 'vuex'
 
 
 import employee from './employee'
+import justification from './justification'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
 
     modules: {
-        employee
+        employee,
+        justification
     }
 })
 

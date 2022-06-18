@@ -1,5 +1,5 @@
 import '../services/axios'
-import HOST from '../services/config'
+import {baseUrl} from '../services/config'
 
 export default {
     state: {
@@ -20,10 +20,10 @@ export default {
 
     actions: {
         actionJustifications({ commit }) {
-            axios.get(`${HOST.justification}`)
+            axios.get(`${baseUrl}/justification`)
                 .then(res => {
                     commit('setJustification', res.data)
-                }).catch(err => console.log(err.response))
+                }).catch(err => console.log(err.response.data))
         }
     }
 }

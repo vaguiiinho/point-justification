@@ -19,7 +19,7 @@ class CoreFactory extends Factory
             'employee_id' => Employee::factory(),
             'start_date' =>$this->faker->dateTimeThisMonth(),
             'end_date' => $this->faker->dateTimeThisMonth(),
-            'justification' => Str::random(200),
+            'justification' => Str::random(50)  . ' difsifjd ' .  Str::random(50),
         ];
     }
 }

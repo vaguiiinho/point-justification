@@ -1,43 +1,39 @@
 <template>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card"></div>
+    <Content title="Funcionarios">
         <b-table striped hover :items="getEmployees" :fields="fields"></b-table>
-      </div>
-    </div>
-  </div>
+    </Content>
 </template>
 
 <script>
+
 import { mapGetters } from "vuex";
+import Content from '../layout/Content'
 
 export default {
-  data() {
-    return {
-      fields: [
-        {
-          key: "last_name",
-          sortable: true,
-          label: "Nome",
-        },
-        {
-          key: "first_name",
-          sortable: false,
-          label: "Sobre nome",
-        },
-        {
-          key: "cpf",
-        },
-      ],
-    };
-  },
-  computed: {
-    ...mapGetters(["getEmployees"]),
-  },
+    components: { Content },
+    data() {
+        return {
+            fields: [
+                {
+                    key: "last_name",
+                    label: "Nome",
+                },
+                {
+                    key: "first_name",
+                    label: "Sobre nome",
+                },
+                {
+                    key: "cpf",
+                },
+            ],
+        };
+    },
+    computed: {
+        ...mapGetters(["getEmployees"]),
+    },
 
-  mounted() {
-    this.$store.dispatch("actionEmployees");
-  },
+    mounted() {
+        this.$store.dispatch("actionEmployees");
+    },
 };
 </script>

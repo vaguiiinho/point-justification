@@ -1,8 +1,5 @@
 const location = window.location
 
-export default {
-    HOST: `${location.protocol}//${location.hostname}:${location.port}`,
-    get Employee() {
-        return `${this.HOST}/employee`
-    }
-}
+export const baseUrl = `${location.protocol}//${location.hostname}:${location.port}`
+
+export default {baseUrl}

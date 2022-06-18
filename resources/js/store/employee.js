@@ -1,5 +1,5 @@
 import '../services/axios'
-import HOST from '../services/config'
+import {baseUrl} from '../services/config'
 
 export default {
     state: {
@@ -20,7 +20,7 @@ export default {
 
     actions: {
         actionEmployees({ commit }) {
-            axios.get(`${HOST.Employee}`)
+            axios.get(`${baseUrl}/employee`)
                 .then(res => {
                     commit('setEmployee', res.data)
                 }).catch(err => console.log(err.response))
