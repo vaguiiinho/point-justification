@@ -1,4 +1,3 @@
-import '../services/axios'
 import {baseUrl} from '../services/config'
 
 export default {

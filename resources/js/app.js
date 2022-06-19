@@ -14,6 +14,7 @@ Vue.use(BootstrapVue)
 
 Vue.component('employees', require('./components/employee/Employees').default);
 Vue.component('justifications', require('./components/justification/Justifications').default);
+Vue.component('create-employee', require('./components/employee/CreateEmployee').default);
 
 const app = new Vue({
     store,

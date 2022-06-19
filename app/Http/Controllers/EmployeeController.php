@@ -33,7 +33,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-
+        return view('employee.create-employee');
     }
 
     /**
@@ -42,9 +42,9 @@ class EmployeeController extends Controller
      * @param  \App\Http\Requests\StoreEmployeeRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreEmployeeRequest $request)
+    public function store(Request $request)
     {
-        var_dump($request);
+        // var_dump($request);
         // Employee::create($request);
 
     }
