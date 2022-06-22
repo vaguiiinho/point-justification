@@ -6,8 +6,11 @@ export default {
     },
 
     mutations: {
-        setEmployee(state, employees) {
+        setEmployees(state, employees) {
             state.employees = employees
+        },
+        addEmployee(state, employee) {
+            state.employees.push(employee)
         }
     },
 
@@ -21,13 +24,13 @@ export default {
         actionEmployees({ commit }) {
             axios.get(employee)
                 .then(res => {
-                    commit('setEmployee', res.data)
+                    commit('setEmployees', res.data)
                 }).catch(err => console.log(err.response))
         },
-        actionCreateEmployee(context) {
-            console.log('context')
-            // axios.post(employee, context)
-            //     .catch(err => console.log(err.response))
+        actionCreateEmployee({commit}, data) {
+            axios.post(employee, data)
+                .then(res => commit('addEmployee', res.data))
+                .catch(err => console.log(err.response))
         }
     }
 }

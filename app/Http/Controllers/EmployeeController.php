@@ -50,7 +50,7 @@ class EmployeeController extends Controller
         ]);
 
         $employee->save();
-        return response()->json('Product created!');
+        return response()->json('Successfully added');
     }
 
     /**

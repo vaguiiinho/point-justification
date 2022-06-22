@@ -69,17 +69,13 @@ export default {
   },
   data() {
     return {
-      employee: {
-        first_name: "primeiro nome",
-        last_name: "segundo nome",
-        cpf: 998,
-      },
+      employee: {},
     };
   },
   methods: {
     ...mapActions(["actionCreateEmployee"]),
     create() {
-      axios.post(employee, this.employee);
+      this.actionCreateEmployee(this.employee)
     },
   },
 };
