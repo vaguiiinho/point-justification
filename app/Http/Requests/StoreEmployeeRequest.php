@@ -26,7 +26,7 @@ class StoreEmployeeRequest extends FormRequest
         return [
             'first_name' => 'required|max:200',
             'last_name' => 'required|max:200',
-            'cpf' => 'required|unique:cpf|max:200'
+            'cpf' => 'required|unique:employees'
         ];
     }
 }

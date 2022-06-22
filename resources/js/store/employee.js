@@ -1,4 +1,4 @@
-import {baseUrl} from '../services/config'
+import { employee } from "../services/axios"
 
 export default {
     state: {
@@ -19,10 +19,15 @@ export default {
 
     actions: {
         actionEmployees({ commit }) {
-            axios.get(`${baseUrl}/employee`)
+            axios.get(employee)
                 .then(res => {
                     commit('setEmployee', res.data)
                 }).catch(err => console.log(err.response))
+        },
+        actionCreateEmployee(context) {
+            console.log('context')
+            // axios.post(employee, context)
+            //     .catch(err => console.log(err.response))
         }
     }
 }

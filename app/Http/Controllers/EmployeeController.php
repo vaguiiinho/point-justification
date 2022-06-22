@@ -22,8 +22,6 @@ class EmployeeController extends Controller
         } else {
             return $employees->toJson();
         }
-
-
     }
 
     /**
@@ -42,11 +40,17 @@ class EmployeeController extends Controller
      * @param  \App\Http\Requests\StoreEmployeeRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreEmployeeRequest $request)
     {
-        // var_dump($request);
-        // Employee::create($request);
+        $employee = new Employee([
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
+            'cpf' => $request->input('cpf'),
+            'user_id' => 1
+        ]);
 
+        $employee->save();
+        return response()->json('Product created!');
     }
 
     /**

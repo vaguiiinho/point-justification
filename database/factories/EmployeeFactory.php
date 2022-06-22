@@ -20,7 +20,7 @@ class EmployeeFactory extends Factory
             'user_id' => User::factory(),
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
-            'cpf' => mt_rand(100000000, 999999999)
+            'cpf' => mt_rand(10000000000, 99999999999)
         ];
     }
 

@@ -6,7 +6,7 @@
 
 <script>
 
-import { mapGetters } from "vuex";
+import { mapGetters } from "vuex"
 import Content from '../layout/Content'
 
 export default {
