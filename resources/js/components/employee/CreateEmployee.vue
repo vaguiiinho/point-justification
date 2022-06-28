@@ -62,7 +62,6 @@
 <script>
 import Content from "../layout/Content";
 import { mapActions } from "vuex";
-import { employee } from "../../services/axios";
 export default {
   components: {
     Content,
