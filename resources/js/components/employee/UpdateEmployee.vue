@@ -3,8 +3,7 @@
         <FormEmployee>
             <b-row>
                 <b-col cols="10" class="my-2">
-                    <b-button class="my-3" @click="create" variant="primary">Save</b-button>
-                    <b-button variant="danger">Reset</b-button>
+                    <b-button class="my-3" @click="update" variant="primary">Editar</b-button>
                 </b-col>
             </b-row>
         </FormEmployee>
@@ -12,11 +11,14 @@
 </template>
 
 <script>
+
 import Content from "../layout/Content";
 import FormEmployee from "./FormEmployee.vue";
 import { mapActions } from "vuex";
 import { mapGetters } from "vuex";
+
 export default {
+    name: 'UpdateEmployee',
     components: {
         Content,
         FormEmployee,
@@ -24,10 +26,13 @@ export default {
     computed: {
         ...mapGetters(['getEmployee'])
     },
+    created() {
+        this.$store.dispatch('actionShowEmployee', this.$route.params.id)
+    },
     methods: {
-        ...mapActions(["actionCreateEmployee"]),
-        create() {
-            this.actionCreateEmployee(this.getEmployee)
+        ...mapActions(["actionUpdateEmployee"]),
+        update() {
+            this.actionUpdateEmployee(this.getEmployee)
             this.$router.push({ name: 'employees' })
         },
     },

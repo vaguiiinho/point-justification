@@ -1,9 +1,9 @@
 <template>
     <Content title="Justificativas">
         <b-table striped hover :items="getJustifications" :fields="fields">
-            <template #cell(actions)="row">
-                <b-button size="sm" class="mr-2">
-                    Editar
+            <template #cell(actions)="data">
+                <b-button  size="sm" class="mr-2">
+                   Editar
                 </b-button>
             </template>
         </b-table>

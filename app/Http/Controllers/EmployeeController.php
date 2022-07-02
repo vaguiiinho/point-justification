@@ -17,22 +17,9 @@ class EmployeeController extends Controller
     public function index(Request $request)
     {
         $employees = Employee::all();
-        if (!$request->ajax()) {
-            return view('employee.index', compact($employees));
-        } else {
-            return $employees->toJson();
-        }
+        return $employees->toJson();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('employee.create-employee');
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -48,9 +35,7 @@ class EmployeeController extends Controller
             'cpf' => $request->input('cpf'),
             'user_id' => 1
         ]);
-
         $employee->save();
-        return response()->json('Successfully added');
     }
 
     /**
@@ -61,18 +46,8 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Employee  $employee
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Employee $employee)
-    {
-        //
+        $employee = Employee::find($employee->id);
+        return $employee->toJson();
     }
 
     /**
@@ -84,7 +59,8 @@ class EmployeeController extends Controller
      */
     public function update(UpdateEmployeeRequest $request, Employee $employee)
     {
-        //
+        $employee = Employee::find($employee->id);
+        $employee->update($request->all());
     }
 
     /**
@@ -95,6 +71,7 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        //
+        $employee = Employee::find($employee->id);
+        $employee->delete();
     }
 }

@@ -1,4 +1,4 @@
-import {baseUrl} from '../services/config'
+import {justification} from '../services/baseUrl'
 
 export default {
     state: {
@@ -19,7 +19,7 @@ export default {
 
     actions: {
         actionJustifications({ commit }) {
-            axios.get(`${baseUrl}/justification`)
+            axios.get(justification)
                 .then(res => {
                     commit('setJustification', res.data)
                 }).catch(err => console.log(err.response.data))
