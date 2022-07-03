@@ -6,10 +6,11 @@
                     variant="primary">
                     Editar
                 </b-button>
-                <b-button @click="showModal(data.item)" size="sm" class="mr-2" variant="danger">
+                <b-button @click="showModal(data.item)" :to="{ name: 'delete-employee', params: { id: data.item.id } }"
+                    size="sm" class="mr-2" variant="danger">
                     Excluir
                 </b-button>
-                <InfoModal :info="data.last_name" />
+                <InfoModalEmployee :info="data.last_name" />
             </template>
         </b-table>
     </Content>
@@ -19,10 +20,10 @@
 
 import { mapGetters } from "vuex"
 import Content from '../layout/Content'
-import InfoModal from "../InfoModal.vue";
+import InfoModalEmployee from "./InfoModalEmployee.vue";
 
 export default {
-    components: { Content, InfoModal },
+    components: { Content, InfoModalEmployee },
     data() {
         return {
             id: null,
@@ -53,8 +54,7 @@ export default {
         ...mapGetters(["getEmployees"]),
     },
     methods: {
-        showModal(employee) {
-            this.$store.commit('setEmployee', employee)
+        showModal() {
             return this.$store.commit('setModalShow', true)
         }
     },

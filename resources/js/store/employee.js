@@ -46,14 +46,12 @@ export default {
                 .then(res => commit('setEmployee', res.data))
                 .catch(err => console.log(err.response))
         },
-        actionUpdateEmployee({ getters }, data) {
+        actionUpdateEmployee({ dispatch }, data) {
             axios.put(`${employee}/${data.id}`, data)
-                .then(() => getters('getEmployees'))
                 .catch(err => console.log(err.response))
         },
-        actionDeleteEmployee({ commit }, id) {
+        actionDeleteEmployee({ dispatch }, id) {
             axios.delete(`${employee}/${id}`)
-                .then(() => getters('getEmployees'))
                 .catch(err => console.log(err.response))
         }
     }

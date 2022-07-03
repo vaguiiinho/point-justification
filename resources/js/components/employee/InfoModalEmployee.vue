@@ -5,7 +5,7 @@
             <b-button size="sm" variant="success" @click="deleteEmployee()">
                 OK
             </b-button>
-            <b-button size="sm" variant="danger" @click="cancel()">
+            <b-button size="sm" variant="danger" @click="back()">
                 Cancel
             </b-button>
         </template>
@@ -18,8 +18,8 @@ import { mapActions } from "vuex";
 
 
 export default {
-    props: ['info', 'id'],
-    name: 'InfoModal',
+    props: ['info'],
+    name: 'InfoModalEmployee',
     computed: {
         modalShow: {
             get() {
@@ -34,9 +34,13 @@ export default {
     methods: {
         ...mapActions(["actionDeleteEmployee"]),
         deleteEmployee() {
-            console.log(this.getEmployee)
-            // this.actionDeleteEmployee(this.id)
-            //     .then(() => this.$store.commit('setModalShow', false))
+            this.actionDeleteEmployee(this.$route.params.id)
+            this.$store.commit('setModalShow', false)
+            this.$router.push({ name: 'employees' })
+        },
+        back() {
+            this.$store.commit('setModalShow', false)
+            this.$router.push({ name: 'employees' })
         }
     },
 }
